@@ -55,17 +55,21 @@
       </section>
     </main>
     <section class="album">
-      <article class="demo-foto">
+      <article class="demo-foto card">
         <h4 class="card-title">
           Title
         </h4>
         <div class="image-container">
-          <img src="resources/images/emotion.jpg">
+          <img class="foto" src="resources/images/emotion.jpg">
         </div>
         <p class="caption">Lorem ipsum dolor sit amet</p>
-        <form>
-          <button class="trash"></button>
-          <button class="heart"></button>
+        <form class="card-buttons">
+          <button class="trash card-btn">
+            <img src="resources/images/delete.svg" class="trash-icon card-svg">
+          </button>
+          <button class="heart card-btn">
+            <img src="resources/images/favorite.svg" class="heart-icon card-svg">
+          </button>
         </form>
       </article>
     </section>
