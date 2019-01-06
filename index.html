@@ -7,35 +7,35 @@
     </title>
     <link rel="stylesheet" type="text/css" href="resources/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="resources/css/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+
   </head>
   <body>
-    <header>
-      <h1>Foto <img src="resources/images/foto-finder-logo.svg"/>Finder</h1>
-      <form>
-        <fieldset class="search-fs">
-          <legend>
-            Search this website:
-          </legend>
-          <label for="search" class="search-row">
-            <input type="search" name="s" placeholder="Search" maxlength="100" results="5" class="search-input"/>
-            <button><img src="" alt="?">
-            </button>
-          </label>
-        </fieldset>
-    </header>
     <main>
+      <header>
+        <h1>Foto <img src="resources/images/foto-finder-logo.svg" class="logo" /> Finder</h1>
+        <form class="search">
+          <fieldset>
+            <legend>
+              Search this website:
+            </legend>
+              <input type="search" name="s" placeholder="Search" maxlength="100" results="5" class="search-input"/>
+              <button class="search-btn"><i class="fas fa-search mag"></i>
+              </button>
+          </fieldset>
+      </header>
       <section class="add-foto">
-        <form>
-          <fieldset class="new-foto-info">
+        <form class="new-foto-info">
+          <fieldset >
             <legend>
               New Foto Info:
             </legend>
-            <h2>
+            <h2 class="label">
               Title
             </h2>
             <input type="text" maxlength="100" class="title-input"/>
-            <h3>
+            <h3 class="label">
               Caption
             </h3>
             <input type="text" class="cap-input" maxlength="250"/>
@@ -43,27 +43,31 @@
               Choose File
             </button>
           </fieldset>
-          <button class="form-btn show-favs-btn">
-            View <span id="fav-count">#</span> Favorites
-          </button>
-          <button type="submit" class="add-btn">Add to Album</button>
+          <div class="btn-container">
+            <button class="form-btn show-favs-btn">
+              View <span id="fav-count">#</span> Favorites
+            </button>
+            <button type="submit" class="add-btn form-btn">
+              Add to Album
+            </button>
+          </div>
         </form>
       </section>
-      <section class="album">
-        <article class="demo-foto">
-          <h4 class="card-title">
-            Title
-          </h4>
-          <div class="image-container">
-            <img src="resources/images/emotion.jpg">
-          </div>
-          <p class="caption">Lorem ipsum dolor sit amet</p>
-          <form>
-            <button class="trash"></button>
-            <button class="heart"></button>
-          </form>
-        </article>
-      </section>
     </main>
+    <section class="album">
+      <article class="demo-foto">
+        <h4 class="card-title">
+          Title
+        </h4>
+        <div class="image-container">
+          <img src="resources/images/emotion.jpg">
+        </div>
+        <p class="caption">Lorem ipsum dolor sit amet</p>
+        <form>
+          <button class="trash"></button>
+          <button class="heart"></button>
+        </form>
+      </article>
+    </section>
   </body>
 </html>
