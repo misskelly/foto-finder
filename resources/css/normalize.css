@@ -39,7 +39,7 @@ main {
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: 0;
 }
 
 /* Grouping content
@@ -227,8 +227,8 @@ button:-moz-focusring,
  */
 
 fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
+/*  padding: 0.35em 0.75em 0.625em;
+*/}
 
 /**
  * 1. Correct the text wrapping in Edge and IE.
@@ -240,7 +240,7 @@ fieldset {
 legend {
   box-sizing: border-box; /* 1 */
   color: inherit; /* 2 */
-  display: table; /* 1 */
+  display: table;  1 
   max-width: 100%; /* 1 */
   padding: 0; /* 3 */
   white-space: normal; /* 1 */
