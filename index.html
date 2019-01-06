@@ -14,12 +14,47 @@
       <h1>Foto <img src="resources/images/foto-finder-logo.svg"/>Finder</h1>
       <form>
         <fieldset class="search-fs">
-          <legend>Search this website:</legend>
-              <label for="search" class="search-row">
-                <input type="search" name="s" placeholder="Search for a job, task, or resume" maxlength="200" results="5" class="search-input" />
-              </label>
-            </fieldset>
-          </form>
+          <legend>
+            Search this website:
+          </legend>
+          <label for="search" class="search-row">
+            <input type="search" name="s" placeholder="Search" maxlength="100" results="5" class="search-input"/>
+            <button><img src="" alt="?">
+            </button>
+          </label>
+        </fieldset>
     </header>
+    <main>
+      <section class="add-foto">
+        <form>
+          <fieldset class="new-foto-info">
+            <legend>
+              New Foto Info:
+            </legend>
+            <h2>
+              Title
+            </h2>
+            <input type="text" maxlength="100" class="title-input"/>
+            <h3>
+              Caption
+            </h3>
+            <input type="text" class="cap-input" maxlength="250"/>
+            <button class="form-btn choose">
+              Choose File
+            </button>
+          </fieldset>
+          <button class="form-btn show-favs-btn">
+            View <span id="fav-count">#</span> Favorites
+          </button>
+          <button type="submit" class="add-btn">Add to Album</button>
+        </form>
+      </section>
+      <section class="album">
+        <article class="demo-foto">
+          <h3>Title</h3>
+          <div class="image-container"></div>
+        </article>
+      </section>
+    </main>
   </body>
 </html>
