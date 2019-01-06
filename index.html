@@ -39,17 +39,18 @@
               Caption
             </h3>
             <input type="text" class="cap-input" maxlength="250"/>
-            <button class="form-btn choose">
+            <button class="form-btn choose-btn">
               Choose File
             </button>
           </fieldset>
           <div class="btn-container">
-            <button class="form-btn show-favs-btn">
+            <button class="form-btn view-favs-btn">
               View <span id="fav-count">#</span> Favorites
             </button>
-            <button type="submit" class="add-btn form-btn">
+            <input type="file" name="file" id="file" class="addfile form-btn" />
+            <label for="file">
               Add to Album
-            </button>
+            </label>
           </div>
         </form>
       </section>
@@ -74,4 +75,6 @@
       </article>
     </section>
   </body>
+  <script type="text/javascript" src="foto.js"></script>
+  <script type="text/javascript" src="main.js"></script>
 </html>
