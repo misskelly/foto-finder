@@ -60,7 +60,7 @@ button {
 }
 
 .search {
-  width: 35%
+  width: 37%
 }
 
 .search-input {
@@ -70,7 +70,7 @@ button {
   height: 40px;
   padding: 10px;
   position: relative;
-  width: 87%;
+  width: 75%;
 }
 
 .search-btn {
@@ -82,12 +82,12 @@ button {
   height: 40px;
   position: relative;
   right: 8px;
-  width: 10%;
+  width: 15%;
 }
 
 .mag {
   font-size: 20px;
-  padding: 2px;
+  padding: 2px 7px;
 }
 
 
@@ -131,7 +131,7 @@ button {
   width: 45%;
 }
 
-.addfile {
+.add-file {
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
