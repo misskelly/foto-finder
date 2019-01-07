@@ -78,14 +78,14 @@ This phase is all about setting up the user inputs and general structure of the 
 
 Phase Two: Implementing The Functionality
 
-[] When a user fills in the Title, Caption, selects an image file, and then clicks the “Add to Album” button, the photo should be added to the photo album.
+[X] When a user fills in the Title, Caption, selects an image file, and then clicks the “Add to Album” button, the photo should be added to the photo album.
 [] Each photo, when added to the album, is placed in a “card”, and each photo card should display:
   The photo
-  The title of the photo
-  The caption of the photo
+  XThe title of the photo
+  XThe caption of the photo
 [X] A button to mark the photo as a “Favorite” (counter on “View Favorites” button should reflect how many photos have been favorited)
 [X] A button to “Remove” the photo from the album
-[] Each photo card should persist (in localStorage) and should be present upon reloading the page.
+[X] Each photo card should persist (in localStorage) and should be present upon reloading the page.
 [] The photo should be added to localStorage using the saveToStorage method defined in the Photo class.
 [] When a user clicks the title or caption of a photo in the list, that text should become an editable text field, pre-populated with the existing photo title or caption.
 [] The user should be able to “commit” their changes by pressing “Enter/Return” or by clicking outside of the text field.
@@ -104,32 +104,75 @@ The application should be responsive and work equally well on desktop and mobile
 Phase Three
 Let’s improve the user experience in this phase.
 
-If the user does not have text in the Title or Caption input elements, or they have not selected a photo from the photos directory, then the “Add to Album” button should be disabled.
-If there are no photos in the album yet, then there should be an indication to the user to add photos, displayed in the empty photo section.
-The file selector should only allow image file types
+[] 
+  If the user does not have text in
+  the Title or Caption input elements, or they have not selected a photo from the photos directory, then the “Add to Album” button should be disabled.
+
+[] 
+  If there are no photos in the album yet, then there should be an indication to the user to add photos, displayed in the empty photo section.
+
+[]  
+  The file selector should only allow image file types
+
+
+
+
 Filtering and Searching by Text
+  
 We want the user to be able to search through all of their photos easily.
 
-At the top of the page, include a text field labeled “Search”.
-As a user types in the search box, the list of photos should filter in real time to only display photos whose title or caption include the user’s text. The page should not reload.
-Clearing the search box should restore all the photos to the list.
-Do not need to persist changes in between sessions.
+[X] 
+  At the top of the page, include a text field labeled “Search”.
+  
+[] 
+  As a user types in the search box, the list of photos should filter in real time to only display photos whose title or caption include the user’s text. The page should not reload.
+  
+[] 
+  Clearing the search box should restore all the photos to the list.
+
+[] 
+  Do not need to persist changes in between sessions.
+
+
 Recent Photos
+
 The application should only show the ten most recent Photos on page load.
 
-The application should contain a button labeled Show more....
-When a user clicks on the Show more... button, the list should load all of the remaining photos.
-Once the remaining photos are loaded, the Show more... button should switch to a Show less... button.
-When a user clicks on the Show less... button, the list should switch back to being the first 10 photos only.
-This functionality should toggle back and forth based on that button click.
-Do not need to persist changes in between sessions.
+[] 
+  The application should contain a button labeled Show more....
+
+[] 
+  When a user clicks on the Show more... button, the list should load all of the remaining photos.
+
+[] 
+  Once the remaining photos are loaded, the Show more... button should switch to a Show less... button.
+
+[] 
+  When a user clicks on the Show less... button, the list should switch back to being the first 10 photos only.
+
+[] 
+  This functionality should toggle back and forth based on that button click.
+
+[] 
+  Do not need to persist changes in between sessions.
+
+
 Viewing Favorites
+
 Finally, let’s let our user be able to view only their favorites.
 
-The user should only see their favorites when they click on the View Favorites button. (consequently, the text on the button should then say View All Photos)
-Clicking on the View All Photos button, the user should be able to see all of their photo cards.
-When viewing favorites, search field should only search through the favorited photos.
-Do not need to persist changes in between sessions.
+[] 
+  The user should only see their favorites when they click on the View Favorites button. (consequently, the text on the button should then say View All Photos)
+
+[] 
+  Clicking on the View All Photos button, the user should be able to see all of their photo cards.
+
+[] 
+  Do not need to persist changes in between sessions.
+
+
+
+
 Extensions
 Work through these in order:
 

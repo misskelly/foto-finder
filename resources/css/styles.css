@@ -157,12 +157,16 @@ button {
 
 /*////PHOTO CARD////*/
 
+h5 {
+  color: #5B4447;
+}
+
 .gallery {
   background-color: #C1B2B4;
   display: flex;
   flex-wrap: wrap;
-  height: 100%;
   justify-content: space-around;
+  align-content: space-around;
   padding: 30px;
   width: 100%;
 }
@@ -174,6 +178,7 @@ button {
   min-width: 200px;
   height: 350px;
   position: relative;
+  margin: 15px;
 }
 
 .foto {
@@ -212,4 +217,12 @@ button {
   float: right;
 }
 
+footer {
+  display: flex;
+}
+
+.show-more {
+  margin: 2rem auto;
+  color: #FFFFFF;
+}
 

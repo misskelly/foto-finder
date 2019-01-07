@@ -12,6 +12,7 @@ var titleInput = document.querySelector('.title-input');
 var capInput = document.querySelector('.cap-input');
 // var uploadImg = document.querySelector('.add-file');
 var addFotoBtn = document.querySelector('.add-btn');
+var showMoreBtn = document.querySelector('.show-more')
 var gallery = document.querySelector('.gallery')
 var fotoArr = JSON.parse(localStorage.getItem("storedFotos")) || [];
 // var reader = new FileReader();
@@ -26,10 +27,11 @@ var fotoArr = JSON.parse(localStorage.getItem("storedFotos")) || [];
 
 
 
-// window.addEventListener('load', appendPhotos);
+window.addEventListener('load', appendFotos);
 // [X] 27 create.addEventListener('click', createElement);
 
 addFotoBtn.addEventListener('click', saveFoto);
+showMoreBtn.addEventListener('click', showAll);
 
 
 // function previewFile() {
@@ -46,47 +48,12 @@ addFotoBtn.addEventListener('click', saveFoto);
 //   }
 // }
 
-function saveFoto(e) {
-  e.preventDefault();
+function saveFoto() {
   let newFoto = new Foto(Date.now(), titleInput.value, capInput.value);
   fotoArr.push(newFoto);
   newFoto.saveToStorage(fotoArr);
   addFoto(newFoto);
 }
-
-
-// function appendPhotos() {
-//   fotoArr.forEach(function (foto) {
-//     gallery.innerHTML += `<article class="demo-foto card">
-//         <h4 class="card-title">
-//           ${titleInput.value}
-//         </h4>
-//         <div class="image-container">
-//           <img class="foto" src="resources/images/emotion.jpg">
-//         </div>
-//         <p class="caption">
-//           ${capInput.value}
-//         </p>
-//         <form class="card-buttons">
-//           <button class="trash card-btn">
-//             <img src="resources/images/delete.svg" class="trash-icon card-svg">
-//           </button>
-//           <button class="heart card-btn">
-//             <img src="resources/images/favorite.svg" class="heart-icon card-svg">
-//           </button>
-//         </form>
-//       </article>`
-//   })
-// }
-
-// function createElement(e) {
-//   e.preventDefault();
-//   console.log(uploadImg.files[0])
-//   if (uploadImg.files[0]) {
-//     reader.readAsDataURL(uploadImg.files[0]); 
-//     reader.onload = addFoto;
-//   }
-// }
 
 function addFoto(foto) {
   // console.log(e.target.result);
@@ -111,10 +78,46 @@ function addFoto(foto) {
           </button>
         </form>
       </article>`);
-  console.log(foto.id);
-  // fotoArr.push(newFoto);
-  // newFoto.saveToStorage(fotoArr);
 }
+
+function appendFotos() {
+  if (fotoArr.length === 0) {
+    gallery.insertAdjacentHTML('afterbegin',
+      `<article>
+          <h5>Add photos to your gallery!
+          </h5>
+      </article>`);
+  } else if (fotoArr.length <= 10) {
+    showAll();
+  } else if (fotoArr.length >=11) {
+    showTen();
+    showMoreBtn.disabled = false;
+  }
+}
+
+function showAll() {
+  gallery.innerHTML = "";
+  fotoArr.forEach(function(foto) {
+    addFoto(foto);
+  });
+}
+
+function showTen() {
+  var tenFotos = fotoArr.slice(-10);
+  gallery.innerHTML = "";
+  tenFotos.forEach(function(foto) {
+    addFoto(foto);
+  });
+}
+// function createElement(e) {
+//   e.preventDefault();
+//   console.log(uploadImg.files[0])
+//   if (uploadImg.files[0]) {
+//     reader.readAsDataURL(uploadImg.files[0]); 
+//     reader.onload = addFoto;
+//   }
+// }
+
 
 
 
