@@ -39,26 +39,28 @@
               Caption
             </h3>
             <input type="text" class="cap-input" maxlength="250"/>
-            <button class="form-btn choose-btn">
-              Choose File
-            </button>
           </fieldset>
+          <div class="choose-container">
+          <input type="file" name="file" id="file" class="add-file"/>
+          <label for="file" class="form-btn choose">
+            Choose File
+          </label>
+          </div>
           <div class="btn-container">
             <button class="form-btn view-favs-btn">
               View <span id="fav-count">#</span> Favorites
             </button>
-            <input type="file" name="file" id="file" class="addfile form-btn" />
-            <label for="file">
+            <button class="add-btn form-btn">
               Add to Album
-            </label>
+            </button>
           </div>
         </form>
       </section>
     </main>
-    <section class="album">
-      <article class="demo-foto card">
+    <section class="gallery">
+      <!-- <article class="demo-foto card">
         <h4 class="card-title">
-          Title
+          DEMO
         </h4>
         <div class="image-container">
           <img class="foto" src="resources/images/emotion.jpg">
@@ -72,8 +74,14 @@
             <img src="resources/images/favorite.svg" class="heart-icon card-svg">
           </button>
         </form>
-      </article>
+       -->
+     <!-- </article> -->
     </section>
+    <footer class="more-less">
+      <button disabled="true" class="show-more form-btn">
+      Show More
+      </button>
+    </footer>
   </body>
   <script type="text/javascript" src="foto.js"></script>
   <script type="text/javascript" src="main.js"></script>

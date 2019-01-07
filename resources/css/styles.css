@@ -23,6 +23,7 @@ main {
 
 header {
   width: 100%;
+  min-width: 320px;
   display: flex;
   justify-content: space-between;
   padding: 25px;
@@ -59,7 +60,7 @@ button {
 }
 
 .search {
-  width: 35%
+  width: 37%
 }
 
 .search-input {
@@ -69,7 +70,7 @@ button {
   height: 40px;
   padding: 10px;
   position: relative;
-  width: 87%;
+  width: 75%;
 }
 
 .search-btn {
@@ -81,12 +82,12 @@ button {
   height: 40px;
   position: relative;
   right: 8px;
-  width: 10%;
+  width: 15%;
 }
 
 .mag {
   font-size: 20px;
-  padding: 2px;
+  padding: 2px 7px;
 }
 
 
@@ -102,6 +103,7 @@ button {
 .title-input {
   width: 100%;
   height: 40px;
+  padding: 0 10px;
 }
 
 .label {
@@ -118,29 +120,53 @@ button {
   margin-top: 38px;
 }
 
-.choose {
-  width: 100%;
-}
-
 .btn-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.show-favs-btn,
+.view-favs-btn,
 .add-btn {
   width: 45%;
 }
 
+.add-file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.choose-container {
+  width: 100%;
+  height: 86px;
+  display: flex;
+  text-align: center;
+}
+
+.choose-container:hover {
+}
+
+.choose {
+  cursor: pointer;
+  width: 100%;
+}
+
 /*////PHOTO CARD////*/
 
-.album {
+h5 {
+  color: #5B4447;
+}
+
+.gallery {
   background-color: #C1B2B4;
   display: flex;
   flex-wrap: wrap;
-  height: 100%;
   justify-content: space-around;
+  align-content: space-around;
   padding: 30px;
   width: 100%;
 }
@@ -152,6 +178,7 @@ button {
   min-width: 200px;
   height: 350px;
   position: relative;
+  margin: 15px;
 }
 
 .foto {
@@ -190,4 +217,12 @@ button {
   float: right;
 }
 
+footer {
+  display: flex;
+}
+
+.show-more {
+  margin: 2rem auto;
+  color: #FFFFFF;
+}
 
