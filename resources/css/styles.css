@@ -23,6 +23,7 @@ main {
 
 header {
   width: 100%;
+  min-width: 320px;
   display: flex;
   justify-content: space-between;
   padding: 25px;
@@ -102,6 +103,7 @@ button {
 .title-input {
   width: 100%;
   height: 40px;
+  padding: 0 10px;
 }
 
 .label {
@@ -155,7 +157,7 @@ button {
 
 /*////PHOTO CARD////*/
 
-.album {
+.gallery {
   background-color: #C1B2B4;
   display: flex;
   flex-wrap: wrap;
