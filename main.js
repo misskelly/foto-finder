@@ -1,13 +1,13 @@
 // /VARIABLES
 
-// var searchInput = document.querySelector('.search-input');
-// var searchBtn = document.querySelector('.search-btn');
 // var viewFavsBtn = document.querySelector('.view-favs-btn');
 // var trashBtn = document.querySelector('.trash');
 // var favBtn = document.querySelector('.heart');
 
 
 
+var searchInput = document.querySelector('.search-input');
+// var searchBtn = document.querySelector('.search-btn');
 var titleInput = document.querySelector('.title-input');
 var capInput = document.querySelector('.cap-input');
 // var uploadImg = document.querySelector('.add-file');
@@ -29,7 +29,7 @@ var fotoArr = JSON.parse(localStorage.getItem("storedFotos")) || [];
 
 window.addEventListener('load', appendFotos);
 // [X] 27 create.addEventListener('click', createElement);
-
+searchInput.addEventListener('input', search)
 addFotoBtn.addEventListener('click', saveFoto);
 showMoreBtn.addEventListener('click', showAll);
 
@@ -89,7 +89,7 @@ function appendFotos() {
       </article>`);
   } else if (fotoArr.length <= 10) {
     showAll();
-  } else if (fotoArr.length >=11) {
+  } else if (fotoArr.length >= 11) {
     showTen();
     showMoreBtn.disabled = false;
   }
@@ -109,6 +109,20 @@ function showTen() {
     addFoto(foto);
   });
 }
+
+function search() {
+  gallery.innerHTML = "";
+  var query = searchInput.value;
+  var filteredCards = fotoArr.filter(function(foto) {
+    return foto.title.includes(query) || foto.caption.includes(query);
+  });
+  filteredCards.forEach(function(foto) {
+    addFoto(foto);
+  });
+}
+
+
+
 // function createElement(e) {
 //   e.preventDefault();
 //   console.log(uploadImg.files[0])
