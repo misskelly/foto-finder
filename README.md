@@ -86,18 +86,18 @@ Phase Two: Implementing The Functionality
 [X] A button to mark the photo as a “Favorite” (counter on “View Favorites” button should reflect how many photos have been favorited)
 [X] A button to “Remove” the photo from the album
 [X] Each photo card should persist (in localStorage) and should be present upon reloading the page.
-[] The photo should be added to localStorage using the saveToStorage method defined in the Photo class.
+[X] The photo should be added to localStorage using the saveToStorage method defined in the Photo class.
 [] When a user clicks the title or caption of a photo in the list, that text should become an editable text field, pre-populated with the existing photo title or caption.
 [] The user should be able to “commit” their changes by pressing “Enter/Return” or by clicking outside of the text field.
 [] This change should be saved in localStorage using the updatePhoto method defined in the Photo class.
 
 
 Bonus: If the user clicks on the image, the user should be able to update the photo using the updatePhoto method.
-When the user clicks on the “Favorite” button, the button should stay in the active (pink) state.
-This favorited state should also persist after a page refresh using the updatePhoto method defined in the Photo class
-When the user clicks on the “Trash” button, the photo should be removed from the page
-The photo should be removed from localStorage using the deleteFromStorage method defined in the Photo class.
-The application should be responsive and work equally well on desktop and mobile
+[] When the user clicks on the “Favorite” button, the button should stay in the active (pink) state.
+[] This favorited state should also persist after a page refresh using the updatePhoto method defined in the Photo class
+[] When the user clicks on the “Trash” button, the photo should be removed from the page
+[] The photo should be removed from localStorage using the deleteFromStorage method defined in the Photo class.
+[] The application should be responsive and work equally well on desktop and mobile
 
 
 
@@ -108,7 +108,7 @@ Let’s improve the user experience in this phase.
   If the user does not have text in
   the Title or Caption input elements, or they have not selected a photo from the photos directory, then the “Add to Album” button should be disabled.
 
-[] 
+[X] 
   If there are no photos in the album yet, then there should be an indication to the user to add photos, displayed in the empty photo section.
 
 []  
@@ -124,13 +124,13 @@ We want the user to be able to search through all of their photos easily.
 [X] 
   At the top of the page, include a text field labeled “Search”.
   
-[] 
+[X] 
   As a user types in the search box, the list of photos should filter in real time to only display photos whose title or caption include the user’s text. The page should not reload.
   
-[] 
+[X] 
   Clearing the search box should restore all the photos to the list.
 
-[] 
+[X] 
   Do not need to persist changes in between sessions.
 
 
@@ -138,10 +138,10 @@ Recent Photos
 
 The application should only show the ten most recent Photos on page load.
 
-[] 
+[X] 
   The application should contain a button labeled Show more....
 
-[] 
+[X] 
   When a user clicks on the Show more... button, the list should load all of the remaining photos.
 
 [] 
