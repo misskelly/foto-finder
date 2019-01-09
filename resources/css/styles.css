@@ -22,18 +22,18 @@ main {
 
 
 header {
-  width: 100%;
-  min-width: 320px;
+  align-items: flex-end;
   display: flex;
   justify-content: space-between;
+  min-width: 320px;
   padding: 25px;
-  align-items: flex-end;
+  width: 100%;
 }
 
 h1 {
-  text-transform: uppercase;
   font-size: 40px;
   letter-spacing: 4px;
+  text-transform: uppercase;
 }
 
 .logo {
@@ -75,9 +75,9 @@ button {
 
 .search-btn {
   background-color: #C1B2B4;
-  border: 2px solid #C1B2B4;
-  border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  border: 2px solid #C1B2B4;
   color: #FFFFFF;
   height: 40px;
   position: relative;
@@ -94,36 +94,36 @@ button {
 /*////FORM////*/
 
 .add-foto {
-  width: 40%;
   margin: 0 auto;
   padding-bottom: 38px;
+  width: 40%;
 }
 
 .cap-input,
 .title-input {
-  width: 100%;
   height: 40px;
   padding: 0 10px;
+  width: 100%;
 }
 
 .label {
-  margin: 10px 0;
-  font-weight: normal;
   color: #C1B2B4;
   font-size: inherit;
+  font-weight: normal;
+  margin: 10px 0;
 }
 
 .form-btn {
   background-color: #5B4447;
   color: inherit;
-  padding: 15px;
   margin-top: 38px;
+  padding: 15px;
 }
 
 .btn-container {
-  width: 100%;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .view-favs-btn,
@@ -132,19 +132,19 @@ button {
 }
 
 .add-file {
-  width: 0.1px;
   height: 0.1px;
   opacity: 0;
   overflow: hidden;
   position: absolute;
+  width: 0.1px;
   z-index: -1;
 }
 
 .choose-container {
-  width: 100%;
-  height: 86px;
   display: flex;
+  height: 86px;
   text-align: center;
+  width: 100%;
 }
 
 .choose-container:hover {
@@ -162,29 +162,29 @@ h5 {
 }
 
 .gallery {
+  align-content: space-around;
   background-color: #C1B2B4;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-content: space-around;
   padding: 30px;
   width: 100%;
 }
 
 .card {
-  border: 2px solid black;
   background-color: #FFFFFF;
-  width: 23%;
-  min-width: 200px;
+  border: 2px solid black;
   height: 350px;
-  position: relative;
   margin: 15px;
+  min-width: 200px;
+  position: relative;
+  width: 23%;
 }
 
 .foto {
-  width: 100%;
   max-height: 150px;
   object-fit: cover; 
+  width: 100%;
 }
 
 .card-title,
@@ -194,9 +194,9 @@ h5 {
 
 .card-buttons {
   background-color: #5B4447;
+  bottom: 0;
   padding: 10px;
   position: absolute;
-  bottom: 0;
   width: 100%;
 }
 
@@ -223,7 +223,7 @@ footer {
 
 .show-more,
 .show-less {
-  margin: 2rem auto;
   color: #FFFFFF;
+  margin: 2rem auto;
 }
 
