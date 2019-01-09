@@ -12,7 +12,7 @@ var titleInput = document.querySelector('.title-input');
 var capInput = document.querySelector('.cap-input');
 // var uploadImg = document.querySelector('.add-file');
 var addFotoBtn = document.querySelector('.add-btn');
-var showMoreBtn = document.querySelector('.show-more')
+var showMoreBtn = document.querySelector('.show-more');
 var gallery = document.querySelector('.gallery')
 var fotoArr = JSON.parse(localStorage.getItem("storedFotos")) || [];
 // var reader = new FileReader();
@@ -27,14 +27,14 @@ var fotoArr = JSON.parse(localStorage.getItem("storedFotos")) || [];
 
 
 
-window.addEventListener('load', appendFotos);
+window.addEventListener('load', pageLoad);
 // [X] 27 create.addEventListener('click', createElement);
 searchInput.addEventListener('input', search)
 addFotoBtn.addEventListener('click', saveFoto);
 // gallery.addEventListener('dblclick', editText);
 gallery.addEventListener('click', clickCatcher);
+showMoreBtn.addEventListener('click', moreLess);
 
-showMoreBtn.addEventListener('click', showAll);
 
 
 // function previewFile() {
@@ -59,8 +59,6 @@ function saveFoto() {
 }
 
 function addFoto(foto) {
-  // console.log(e.target.result);
-  // var newFoto = new Foto(Date.now(), e.target.result);
   gallery.insertAdjacentHTML('afterbegin',
     `<article data-id=${foto.id} class="card">
         <h4 class="card-title">
@@ -83,6 +81,11 @@ function addFoto(foto) {
       </article>`);
 }
 
+function pageLoad() {
+  appendFotos();
+  instFoto();
+}
+
 function appendFotos() {
   if (fotoArr.length === 0) {
     gallery.insertAdjacentHTML('afterbegin',
@@ -99,30 +102,48 @@ function appendFotos() {
   }
 }
 
+function instFoto() {
+  fotoArr.forEach(function(foto) {
+    var fotoObj = new Foto(foto.id, foto.title, foto.caption);
+  });
+}
+
+// var photoObj = new Photo(image.title, image.caption, image.file, image.favorite, image.id);
+
 function showAll() {
   gallery.innerHTML = "";
   fotoArr.forEach(function(foto) {
     addFoto(foto);
   });
-  showMoreBtn.innerText = "Show Less";
+  if (fotoArr.length >= 11) {
+    showMoreBtn.innerText = "Show Less";
+  }
 }
 
 function showTen() {
+  // debugger
   var tenFotos = fotoArr.slice(-10);
   gallery.innerHTML = '';
   tenFotos.forEach(function(foto) {
     addFoto(foto);
   });
-  // if (showMoreBtn.innerText === "Show Less") {
+}
 
-  // }
+
+function moreLess() {
+  if (showMoreBtn.innerText === "Show More") {
+    showAll(); 
+  } else if (showMoreBtn.innerText === "Show Less") {
+    showTen();
+    showMoreBtn.innerText = "Show More";
+  } 
 }
 
 function search() {
   gallery.innerHTML = "";
   var query = searchInput.value;
   var filteredCards = fotoArr.filter(function(foto) {
-    return foto.title.includes(query) || foto.caption.includes(query);
+    return foto.title.toLowerCase().includes(query) || foto.caption.toLowerCase().includes(query);
   });
   filteredCards.forEach(function(foto) {
     addFoto(foto);
@@ -154,25 +175,37 @@ function search() {
 
 function clickCatcher(e) {
   e.preventDefault();
-  let cardId = parseInt(e.target.parentElement.parentElement.parentElement.dataset.id);
-  console.log(cardId);
-  var whichButton = event.target.className;
-  console.log(whichButton);
+  let targetCard = e.target.parentElement.parentElement.parentElement;
+  let cardId = parseInt(targetCard.dataset.id);
+  let whichButton = event.target.className;
+  // console.log(targetCard, cardId, whichButton);
+  targetCard.parentNode.removeChild(targetCard);
   if (whichButton = 'trash') {
     deleteFoto(cardId);
   }
-
 }
 
 function deleteFoto(trashedId) {
-  let index = fotoArr.findIndex(foto => foto.id === trashedId);
-
-  console.log(index);
-  debugger
-  let fotoCard = document.getElementbyId(trashedId.toString());
-  fotoCard.remove();
-  fotoArr[index].deleteFromStorage(index, fotoArr);
+  let index = fotoArr.findIndex(function(foto) {
+    return foto.id === trashedId;
+  });
+  let trashed = new Foto(trashedId, '', '')
+  trashedId.toString();
+  trashed.deleteFromStorage(index, fotoArr);
 }
+
+// function saveFoto() {
+//   let newFoto = new Foto(Date.now(), titleInput.value, capInput.value);
+//   fotoArr.push(newFoto);
+//   newFoto.saveToStorage(fotoArr);
+//   addFoto(newFoto);
+// }
+
+
+
+
+
+
 
 // function unstringify(e) {
 //   JSON.parse(fotoArr);

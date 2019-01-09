@@ -16,6 +16,7 @@ class Foto {
     array.splice(index, 1);
     this.saveToStorage(array);
   }
+
 }
 
   // updateFoto(change, key) {
