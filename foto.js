@@ -4,7 +4,7 @@ class Foto {
     this.title = title;
     this.caption = caption;
     // this.file = file;
-    this.fav = true || false;
+    this.fav = false;
   }
 
   saveToStorage(array) {
@@ -12,9 +12,13 @@ class Foto {
     localStorage.setItem("storedFotos", stringified);
   }
 
-  deleteFromStorage() {
-  }
-  updateFoto() {
-
+  deleteFromStorage(index, array) {
+    array.splice(index, 1);
+    this.saveToStorage(array);
   }
 }
+
+  // updateFoto(change, key) {
+  //   this [key] = change;
+  // }
+

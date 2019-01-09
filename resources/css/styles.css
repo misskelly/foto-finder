@@ -188,7 +188,7 @@ h5 {
 }
 
 .card-title,
-.caption {
+.card-caption {
   margin-left: 10px;
 }
 
@@ -213,7 +213,7 @@ h5 {
   width: 100%;
 }
 
-.heart {
+.heart-btn {
   float: right;
 }
 

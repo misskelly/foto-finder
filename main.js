@@ -31,6 +31,9 @@ window.addEventListener('load', appendFotos);
 // [X] 27 create.addEventListener('click', createElement);
 searchInput.addEventListener('input', search)
 addFotoBtn.addEventListener('click', saveFoto);
+// gallery.addEventListener('dblclick', editText);
+gallery.addEventListener('click', clickCatcher);
+
 showMoreBtn.addEventListener('click', showAll);
 
 
@@ -66,15 +69,15 @@ function addFoto(foto) {
         <div class="image-container">
           <img class="foto" src="resources/images/emotion.jpg">
         </div>
-        <p class="caption">
+        <p class="card-caption">
           ${foto.caption}
         </p>
         <form class="card-buttons">
-          <button class="trash card-btn">
-            <img src="resources/images/delete.svg" class="trash-icon card-svg">
+          <button class="trash-btn card-btn">
+            <img src="resources/images/delete.svg" class="trash card-svg">
           </button>
-          <button class="heart card-btn">
-            <img src="resources/images/favorite.svg" class="heart-icon card-svg">
+          <button class="heart-btn card-btn">
+            <img src="resources/images/favorite.svg" class="heart card-svg">
           </button>
         </form>
       </article>`);
@@ -89,6 +92,7 @@ function appendFotos() {
       </article>`);
   } else if (fotoArr.length <= 10) {
     showAll();
+    showMoreBtn.style.display = "none";
   } else if (fotoArr.length >= 11) {
     showTen();
     showMoreBtn.disabled = false;
@@ -100,14 +104,18 @@ function showAll() {
   fotoArr.forEach(function(foto) {
     addFoto(foto);
   });
+  showMoreBtn.innerText = "Show Less";
 }
 
 function showTen() {
   var tenFotos = fotoArr.slice(-10);
-  gallery.innerHTML = "";
+  gallery.innerHTML = '';
   tenFotos.forEach(function(foto) {
     addFoto(foto);
   });
+  // if (showMoreBtn.innerText === "Show Less") {
+
+  // }
 }
 
 function search() {
@@ -120,6 +128,55 @@ function search() {
     addFoto(foto);
   });
 }
+
+// function editText(event) {
+//   var domFoto = parseInt(event.target.parentElement.dataset.id);
+//   var lsFoto = fotoArr.find(function(foto) {
+//     return foto.id === domFoto;
+//   });
+//   event.target.contentEditable = true;
+//   console.log(lsFoto);
+//   if (event.target.classList.contains("card-title")) {
+//     lsFoto.updateFoto(event.target.value, "title");
+//   } else if (event.target.classList.contains("card-caption")) {
+//     lsFoto.updateFoto(event.target.value, "caption");
+//   }
+//   // document.body.addEventListener('keyup', function(e) {
+//   //   if (e.keycode === 13) {
+//   //     saveChanges();
+//   //   }
+//   // });
+//   event.target.addEventListener('focusout', function() {
+//     lsFoto.saveToStorage(fotoArr);
+//   });
+//   event.target.contentEditable = false;
+// }
+
+function clickCatcher(e) {
+  e.preventDefault();
+  let cardId = parseInt(e.target.parentElement.parentElement.parentElement.dataset.id);
+  console.log(cardId);
+  var whichButton = event.target.className;
+  console.log(whichButton);
+  if (whichButton = 'trash') {
+    deleteFoto(cardId);
+  }
+
+}
+
+function deleteFoto(trashedId) {
+  let index = fotoArr.findIndex(foto => foto.id === trashedId);
+
+  console.log(index);
+  debugger
+  let fotoCard = document.getElementbyId(trashedId.toString());
+  fotoCard.remove();
+  fotoArr[index].deleteFromStorage(index, fotoArr);
+}
+
+// function unstringify(e) {
+//   JSON.parse(fotoArr);
+// }
 
 
 
