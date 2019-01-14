@@ -1,9 +1,9 @@
 class Foto {
-  constructor(id, title, caption) {
+  constructor(id, title, caption, file) {
     this.id = id;
     this.title = title;
     this.caption = caption;
-    // this.file = file;
+    this.file = file;
     this.fav = false;
   }
 
@@ -13,6 +13,7 @@ class Foto {
   }
 
   deleteFromStorage(index, array) {
+    
     array.splice(index, 1);
     this.saveToStorage(array);
   }
