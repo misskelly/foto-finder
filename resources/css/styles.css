@@ -217,6 +217,10 @@ h5 {
   width: 100%;
 }
 
+.trash-active {
+  display: none;
+}
+
 .heart-btn {
   float: right;
 }

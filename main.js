@@ -91,6 +91,7 @@ function addFoto(foto) {
         <form class="card-buttons">
           <button class="trash-btn card-btn">
             <img src="resources/images/delete.svg" class="trash card-svg">
+            <img src="resources/images/delete-active.svg" class="trash-active card-svg">
           </button>
           <button class="heart-btn card-btn">
             <img src="resources/images/favorite.svg" class="heart card-svg">
@@ -213,33 +214,11 @@ function deleteFoto(trashedId) {
   window.location.reload();
 }
 
-// function saveFoto() {
-//   let newFoto = new Foto(Date.now(), titleInput.value, capInput.value);
-//   fotoArr.push(newFoto);
-//   newFoto.saveToStorage(fotoArr);
-//   addFoto(newFoto);
-// }
 
 
 
 
 
-
-
-// function unstringify(e) {
-//   JSON.parse(fotoArr);
-// }
-
-
-
-// function createElement(e) {
-//   e.preventDefault();
-//   console.log(uploadImg.files[0])
-//   if (uploadImg.files[0]) {
-//     reader.readAsDataURL(uploadImg.files[0]); 
-//     reader.onload = addFoto;
-//   }
-// }
 
 
 
