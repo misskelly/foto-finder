@@ -120,6 +120,10 @@ button {
   padding: 15px;
 }
 
+.form-btn:hover {
+  background-color: #A55144;
+}
+
 .btn-container {
   display: flex;
   justify-content: space-between;
