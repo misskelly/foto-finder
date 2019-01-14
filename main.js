@@ -7,11 +7,13 @@
 
 
 var searchInput = document.querySelector('.search-input');
-// var searchBtn = document.querySelector('.search-btn');
 var titleInput = document.querySelector('.title-input');
 var capInput = document.querySelector('.cap-input');
-// var uploadImg = document.querySelector('.add-file');
+
+var fileInput = document.querySelector('.add-file');
+// var chooseFileBtn = document.querySelector('.choose');
 var addFotoBtn = document.querySelector('.add-btn');
+
 var showMoreBtn = document.querySelector('.show-more');
 var gallery = document.querySelector('.gallery')
 var fotoArr = JSON.parse(localStorage.getItem("storedFotos")) || [];
@@ -20,43 +22,59 @@ var fotoArr = JSON.parse(localStorage.getItem("storedFotos")) || [];
 
 ///////////
 
-// [X] 9 var create = document.querySelector('button');
-// [X] 7 var input = document.querySelector('input');
-// [X] 12 var photoGallery = document.querySelector('.images');
-// [X] 13 var imagesArr = JSON.parse(localStorage.getItem('photos')) || []; 
-
-
 
 window.addEventListener('load', pageLoad);
-// [X] 27 create.addEventListener('click', createElement);
+
 searchInput.addEventListener('input', search)
-addFotoBtn.addEventListener('click', saveFoto);
+addFotoBtn.addEventListener('click', createElement);
 // gallery.addEventListener('dblclick', editText);
 gallery.addEventListener('click', clickCatcher);
 showMoreBtn.addEventListener('click', moreLess);
 
 
+////////
+// var create = document.querySelector('button');
+// var input = document.querySelector('input');
+// var photoGallery = document.querySelector('.images');
+// var imagesArr = JSON.parse(localStorage.getItem('photos')) || [];
+var reader = new FileReader();
 
-// function previewFile() {
-//   var preview = document.querySelector('img');
-//   var file    = document.querySelector('input[type=file]').files[0];
-//   var reader  = new FileReader();
+// window.addEventListener('load', appendPhotos);
+// create.addEventListener('click', createElement);
 
-//   reader.addEventListener("load", function () {
-//     preview.src = reader.result;
-//   }, false);
-
-//   if (file) {
-//     reader.readAsDataURL(file);
-//   }
+// function appendPhotos() {
+//   imagesArr.forEach(function (photo) {
+//     photoGallery.innerHTML += `<img src= />`
+//   })
 // }
 
-function saveFoto() {
-  let newFoto = new Foto(Date.now(), titleInput.value, capInput.value);
+function createElement() {
+  console.log(fileInput.files[0])
+  if (fileInput.files[0]) {
+    reader.readAsDataURL(fileInput.files[0]); 
+    reader.onload = saveFoto;
+  }
+}
+
+// function addPhoto(e) {
+//   // console.log(e.target.result);
+//   var newPhoto = new Photo(Date.now(), e.target.result);
+//   photoGallery.innerHTML += `<img src=${e.target.result} />`;
+//   imagesArr.push(newPhoto)
+//   newPhoto.saveToStorage(imagesArr)
+// }
+
+//////////
+
+
+
+function saveFoto(e) {
+  var newFoto = new Foto(Date.now(), titleInput.value, capInput.value, e.target.result);
   fotoArr.push(newFoto);
   newFoto.saveToStorage(fotoArr);
   addFoto(newFoto);
 }
+
 
 function addFoto(foto) {
   gallery.insertAdjacentHTML('afterbegin',
@@ -65,7 +83,7 @@ function addFoto(foto) {
           ${foto.title}
         </h4>
         <div class="image-container">
-          <img class="foto" src="resources/images/emotion.jpg">
+          <img class="foto" src="${foto.file}">
         </div>
         <p class="card-caption">
           ${foto.caption}
@@ -177,7 +195,7 @@ function clickCatcher(e) {
   e.preventDefault();
   let targetCard = e.target.parentElement.parentElement.parentElement;
   let cardId = parseInt(targetCard.dataset.id);
-  let whichButton = event.target.className;
+  let whichButton = e.target.className;
   // console.log(targetCard, cardId, whichButton);
   targetCard.parentNode.removeChild(targetCard);
   if (whichButton = 'trash') {
@@ -192,6 +210,7 @@ function deleteFoto(trashedId) {
   let trashed = new Foto(trashedId, '', '')
   trashedId.toString();
   trashed.deleteFromStorage(index, fotoArr);
+  window.location.reload();
 }
 
 // function saveFoto() {
