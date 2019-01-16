@@ -120,6 +120,10 @@ button {
   padding: 15px;
 }
 
+.form-btn:hover {
+  background-color: #A55144;
+}
+
 .btn-container {
   display: flex;
   justify-content: space-between;
@@ -211,6 +215,10 @@ h5 {
 .card-svg {
   height: 100%;
   width: 100%;
+}
+
+.trash-active {
+  display: none;
 }
 
 .heart-btn {
