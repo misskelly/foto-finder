@@ -1,7 +1,6 @@
 // /VARIABLES
 
 // var viewFavsBtn = document.querySelector('.view-favs-btn');
-// var trashBtn = document.querySelector('.trash');
 // var favBtn = document.querySelector('.heart');
 
 
@@ -17,7 +16,7 @@ var addFotoBtn = document.querySelector('.add-btn');
 var showMoreBtn = document.querySelector('.show-more');
 var gallery = document.querySelector('.gallery')
 var fotoArr = JSON.parse(localStorage.getItem("storedFotos")) || [];
-// var reader = new FileReader();
+var reader = new FileReader();
 
 
 ///////////
@@ -32,41 +31,16 @@ gallery.addEventListener('click', clickCatcher);
 showMoreBtn.addEventListener('click', moreLess);
 
 
-////////
-// var create = document.querySelector('button');
-// var input = document.querySelector('input');
-// var photoGallery = document.querySelector('.images');
-// var imagesArr = JSON.parse(localStorage.getItem('photos')) || [];
-var reader = new FileReader();
+///////////
 
-// window.addEventListener('load', appendPhotos);
-// create.addEventListener('click', createElement);
-
-// function appendPhotos() {
-//   imagesArr.forEach(function (photo) {
-//     photoGallery.innerHTML += `<img src= />`
-//   })
-// }
 
 function createElement() {
-  console.log(fileInput.files[0])
+  // console.log(fileInput.files[0])
   if (fileInput.files[0]) {
     reader.readAsDataURL(fileInput.files[0]); 
     reader.onload = saveFoto;
   }
 }
-
-// function addPhoto(e) {
-//   // console.log(e.target.result);
-//   var newPhoto = new Photo(Date.now(), e.target.result);
-//   photoGallery.innerHTML += `<img src=${e.target.result} />`;
-//   imagesArr.push(newPhoto)
-//   newPhoto.saveToStorage(imagesArr)
-// }
-
-//////////
-
-
 
 function saveFoto(e) {
   var newFoto = new Foto(Date.now(), titleInput.value, capInput.value, e.target.result);
@@ -106,12 +80,14 @@ function pageLoad() {
 }
 
 function appendFotos() {
+  var footer = document.querySelector('.more-less');
   if (fotoArr.length === 0) {
     gallery.insertAdjacentHTML('afterbegin',
       `<article>
           <h5>Add photos to your gallery!
           </h5>
       </article>`);
+    showMoreBtn.style.display = "none";
   } else if (fotoArr.length <= 10) {
     showAll();
     showMoreBtn.style.display = "none";
@@ -121,13 +97,13 @@ function appendFotos() {
   }
 }
 
-function instFoto() {
-  fotoArr.forEach(function(foto) {
-    var fotoObj = new Foto(foto.id, foto.title, foto.caption);
-  });
-}
+// function instFoto() {
+//   fotoArr.forEach(function(foto) {
+//     var fotoObj = new Foto(foto.id, foto.title, foto.caption);
+//   });
+// }
 
-// var photoObj = new Photo(image.title, image.caption, image.file, image.favorite, image.id);
+// // var photoObj = new Photo(image.title, image.caption, image.file, image.favorite, image.id);
 
 function showAll() {
   gallery.innerHTML = "";
